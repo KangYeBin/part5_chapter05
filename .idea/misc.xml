@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/AndroidStudioProjects/part5_chapter05/app/src/main/res/drawable/ic_baseline_star_24.xml" value="0.18981481481481483" />
+        <entry key="..\:/Android/AndroidStudioProjects/part5_chapter05/app/src/main/res/drawable/ic_baseline_star_border_24.xml" value="0.18981481481481483" />
+        <entry key="..\:/Android/AndroidStudioProjects/part5_chapter05/app/src/main/res/drawable/selector_favorite_checkbox.xml" value="0.18981481481481483" />
         <entry key="..\:/Android/AndroidStudioProjects/part5_chapter05/app/src/main/res/layout/activity_main.xml" value="0.12335359675785208" />
         <entry key="..\:/Android/AndroidStudioProjects/part5_chapter05/app/src/main/res/layout/fragment_station_arrival.xml" value="0.12335359675785208" />
-        <entry key="..\:/Android/AndroidStudioProjects/part5_chapter05/app/src/main/res/layout/fragment_stations.xml" value="0.12335359675785208" />
+        <entry key="..\:/Android/AndroidStudioProjects/part5_chapter05/app/src/main/res/layout/fragment_stations.xml" value="0.2" />
+        <entry key="..\:/Android/AndroidStudioProjects/part5_chapter05/app/src/main/res/layout/item_station.xml" value="0.2" />
       </map>
     </option>
   </component>
