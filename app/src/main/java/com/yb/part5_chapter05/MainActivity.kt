@@ -10,6 +10,7 @@ import com.yb.part5_chapter05.R
 import com.yb.part5_chapter05.databinding.ActivityMainBinding
 import com.yb.part5_chapter05.extension.toGone
 import com.yb.part5_chapter05.extension.toVisible
+import com.yb.part5_chapter05.presentation.stationarrivals.StationArrivalsFragmentArgs
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         initViews()
         bindViews()
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -39,6 +41,7 @@ class MainActivity : AppCompatActivity() {
     private fun bindViews() {
         navigationController.addOnDestinationChangedListener { controller, destination, arguments ->
             if (destination.id == R.id.station_arrivals_dest) {
+                title = StationArrivalsFragmentArgs.fromBundle(arguments!!).station.stationName
                 binding.toolbar.toVisible()
             } else {
                 binding.toolbar.toGone()

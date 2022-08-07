@@ -5,6 +5,6 @@
         <bitmap android:src="@drawable/ic_star" />
     </item>
     <item android:state_checked="false">
-        <bitmap android:src="@drawable/ic_start_empty" />
+        <bitmap android:src="@drawable/ic_star_empty" />
     </item>
 </selector>

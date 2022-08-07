@@ -1,12 +1,15 @@
 package com.yb.part5_chapter05.presentation.stations
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
@@ -45,6 +48,7 @@ class StationsFragment : ScopeFragment(), StationsContract.View {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        hideKeyboard()
         presenter.onDestroyView()
     }
 
@@ -85,12 +89,18 @@ class StationsFragment : ScopeFragment(), StationsContract.View {
 
         (binding?.recyclerView?.adapter as StationsAdapter).apply {
             onItemClickListener = { station ->
-
+                val action = StationsFragmentDirections.toStationArrivalsAction(station)
+                findNavController().navigate(action)
             }
             onFavoriteClickListener = { station ->
-
             }
         }
+    }
+
+    private fun hideKeyboard() {
+        val inputMethodManager =
+            context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(activity?.currentFocus?.windowToken, 0)
     }
 
 }

@@ -9,17 +9,19 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/white"
         android:elevation="4dp"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize" />
+        app:contentInsetStartWithNavigation="0dp" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/mainNavigationHostContainer"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
-        android:name="androidx.navigation.fragment.NavHostFragment"
         app:navGraph="@navigation/navigation_main" />
 
 </LinearLayout>

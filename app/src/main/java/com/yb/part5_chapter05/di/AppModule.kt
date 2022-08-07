@@ -13,6 +13,9 @@ import com.yb.part5_chapter05.data.preference.PreferenceManager
 import com.yb.part5_chapter05.data.preference.SharedPreferenceManager
 import com.yb.part5_chapter05.data.repository.StationRepository
 import com.yb.part5_chapter05.data.repository.StationRepositoryImpl
+import com.yb.part5_chapter05.presentation.stationarrivals.StationArrivalsContract
+import com.yb.part5_chapter05.presentation.stationarrivals.StationArrivalsFragment
+import com.yb.part5_chapter05.presentation.stationarrivals.StationArrivalsPresenter
 import com.yb.part5_chapter05.presentation.stations.StationsContract
 import com.yb.part5_chapter05.presentation.stations.StationsFragment
 import com.yb.part5_chapter05.presentation.stations.StationsPresenter
@@ -73,6 +76,12 @@ val appModule = module {
     scope<StationsFragment> {
         scoped<StationsContract.Presenter> {
             StationsPresenter(getSource(), get())
+        }
+    }
+
+    scope<StationArrivalsFragment> {
+        scoped<StationArrivalsContract.Presenter> {
+            StationArrivalsPresenter(getSource(), get(), get())
         }
     }
 }

@@ -2,8 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/stations_dest"
-    android:id="@+id/navigation_main">
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/stations_dest">
 
     <fragment
         android:id="@+id/stations_dest"
@@ -18,6 +18,12 @@
     <fragment
         android:id="@+id/station_arrivals_dest"
         android:name="com.yb.part5_chapter05.presentation.stationarrivals.StationArrivalsFragment"
-        tools:layout="@layout/fragment_station_arrival">
+        tools:layout="@layout/fragment_station_arrivals">
+
+        <argument
+            android:name="station"
+            app:argType="com.yb.part5_chapter05.domain.Station" />
+
     </fragment>
+
 </navigation>
