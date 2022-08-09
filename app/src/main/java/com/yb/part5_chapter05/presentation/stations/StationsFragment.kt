@@ -93,6 +93,7 @@ class StationsFragment : ScopeFragment(), StationsContract.View {
                 findNavController().navigate(action)
             }
             onFavoriteClickListener = { station ->
+                presenter.toggleStationFavorite(station)
             }
         }
     }

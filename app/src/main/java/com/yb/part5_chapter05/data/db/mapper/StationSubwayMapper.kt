@@ -1,5 +1,6 @@
 package com.yb.part5_chapter05.data.db.mapper
 
+import com.yb.part5_chapter05.data.db.entity.StationEntity
 import com.yb.part5_chapter05.data.db.entity.StationWithSubwaysEntity
 import com.yb.part5_chapter05.data.db.entity.SubwayEntity
 import com.yb.part5_chapter05.domain.Station
@@ -10,6 +11,12 @@ fun StationWithSubwaysEntity.toStation() =
         stationName = station.stationName,
         isFavorited = station.isFavorited,
         connectedSubways = subways.toSubways()
+    )
+
+fun Station.toStationEntity() =
+    StationEntity(
+        stationName = stationName,
+        isFavorited = isFavorited
     )
 
 fun List<StationWithSubwaysEntity>.toStations() = map {

@@ -5,6 +5,7 @@ import com.yb.part5_chapter05.data.api.StationArrivalsApi
 import com.yb.part5_chapter05.data.api.response.mapper.toArrivalInformation
 import com.yb.part5_chapter05.data.db.StationDao
 import com.yb.part5_chapter05.data.db.entity.StationSubwayCrossRefEntity
+import com.yb.part5_chapter05.data.db.mapper.toStationEntity
 import com.yb.part5_chapter05.data.db.mapper.toStations
 import com.yb.part5_chapter05.data.preference.PreferenceManager
 import com.yb.part5_chapter05.domain.ArrivalInformation
@@ -26,7 +27,11 @@ class StationRepositoryImpl(
     override val stations: Flow<List<Station>> =
         stationDao.getStationWithSubways()
             .distinctUntilChanged()
-            .map { it.toStations() }
+            .map { stations ->
+                stations.toStations().sortedByDescending { station ->
+                    station.isFavorited
+                }
+            }
             .flowOn(dispatcher)
 
     override suspend fun refreshStations() {
@@ -54,6 +59,10 @@ class StationRepositoryImpl(
                 }
                 ?: throw RuntimeException("도착 정보를 불러오는데에 실패했습니다")
         }
+
+    override suspend fun updateStation(station: Station) = withContext(dispatcher) {
+        stationDao.updateStation(station.toStationEntity())
+    }
 
     companion object {
         private const val KEY_LAST_DATABASE_UPDATED_TIME_MILLIS =

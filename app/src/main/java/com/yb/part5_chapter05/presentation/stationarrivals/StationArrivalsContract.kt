@@ -19,5 +19,7 @@ interface StationArrivalsContract {
 
     interface Presenter : BasePresenter {
         fun fetchStationArrivals()
+
+        fun toggleStationFavorite()
     }
 }
